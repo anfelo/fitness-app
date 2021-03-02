@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fitness-69419": {
+      "hosting": {
+        "fitness": [
+          "fitness-69419"
+        ]
+      }
+    }
+  }
+}
