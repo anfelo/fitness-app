@@ -14,9 +14,9 @@ import {
   styleUrls: ['app.component.scss'],
   template: `
     <div>
+      <app-header [user]="user$ | async" (logout)="onLogout()"></app-header>
+      <app-nav *ngIf="(user$ | async)?.authenticated"></app-nav>
       <div class="wrapper">
-        <app-header [user]="user$ | async" (logout)="onLogout()"></app-header>
-        <app-nav *ngIf="(user$ | async)?.authenticated"></app-nav>
         <router-outlet></router-outlet>
       </div>
     </div>

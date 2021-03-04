@@ -8,6 +8,7 @@ import { Store } from 'store';
 
 // Fetaure Modules
 import { AuthModule } from '../auth/auth.module';
+import { HealthModule } from '../health/health.module';
 
 // Containers
 import { AppComponent } from './containers/app/app.component';
@@ -18,7 +19,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, NavComponent],
-  imports: [BrowserModule, AppRoutingModule, AuthModule],
+  imports: [BrowserModule, AppRoutingModule, AuthModule, HealthModule],
   providers: [Store],
   bootstrap: [AppComponent],
 })
