@@ -12,8 +12,12 @@ import { AuthModule } from '../auth/auth.module';
 // Containers
 import { AppComponent } from './containers/app/app.component';
 
+// Components
+import { HeaderComponent } from './components/header/header.component';
+import { NavComponent } from './components/nav/nav.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent, NavComponent],
   imports: [BrowserModule, AppRoutingModule, AuthModule],
   providers: [Store],
   bootstrap: [AppComponent],
