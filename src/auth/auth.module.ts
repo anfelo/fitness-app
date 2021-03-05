@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-import { environment } from '../environments/environment';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -14,8 +10,6 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     AngularFireAuthModule,
     SharedModule.forRoot(),
   ],
