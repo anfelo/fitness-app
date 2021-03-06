@@ -9,8 +9,11 @@ import { SharedModule } from '../shared/shared.module';
 import { MealsComponent } from './containers/meals/meals.component';
 import { MealComponent } from './containers/meal/meal.component';
 
+// Components
+import { MealFormComponent } from './components/meal-form/meal-form.component';
+
 @NgModule({
-  declarations: [MealsComponent, MealComponent],
+  declarations: [MealsComponent, MealComponent, MealFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
