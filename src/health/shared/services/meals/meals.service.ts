@@ -43,6 +43,10 @@ export class MealsService {
     });
   }
 
+  async updateMeal(meal: Meal) {
+    return this.db.collection('meals').doc(meal.id).update(meal);
+  }
+
   getMeal(mealId: string) {
     if (!mealId) {
       return of({});

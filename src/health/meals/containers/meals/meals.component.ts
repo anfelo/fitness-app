@@ -27,8 +27,10 @@ import {
         </div>
         <list-item
           *ngFor="let meal of meals"
+          [feature]="'meals'"
           [item]="meal"
-          (remove)="removeMeal($event)">
+          (remove)="removeMeal($event)"
+        >
         </list-item>
       </div>
       <ng-template #loading>

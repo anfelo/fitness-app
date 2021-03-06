@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'list-item',
@@ -14,35 +20,24 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
           </span>
         </p>
       </a>
-      <div
-        class="list-item__delete"
-        *ngIf="toggled">
+      <div class="list-item__delete" *ngIf="toggled">
         <p>Delete item?</p>
-        <button
-          class="confirm"
-          type="button"
-          (click)="removeItem()">
+        <button class="confirm" type="button" (click)="removeItem()">
           Yes
         </button>
-        <button
-          class="cancel"
-          type="button"
-          (click)="toggle()">
-          No
-        </button>
+        <button class="cancel" type="button" (click)="toggle()">No</button>
       </div>
-      <button
-        class="trash"
-        type="button"
-        (click)="toggle()">
-        <img src="/assets/img/remove.svg">
+      <button class="trash" type="button" (click)="toggle()">
+        <img src="/assets/img/remove.svg" />
       </button>
     </div>
-  `
+  `,
 })
-export class ListItemComponent{
-
+export class ListItemComponent {
   toggled = false;
+
+  @Input()
+  feature: 'meals' | 'workouts';
 
   @Input()
   item: any;
@@ -53,10 +48,7 @@ export class ListItemComponent{
   constructor() {}
 
   getRoute(item: any) {
-    return [
-      `../meals`,
-      item.id
-    ];
+    return [`../${this.feature}`, item.id];
   }
 
   removeItem() {
@@ -66,5 +58,4 @@ export class ListItemComponent{
   toggle() {
     this.toggled = !this.toggled;
   }
-
 }
