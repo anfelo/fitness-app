@@ -9,16 +9,33 @@ service cloud.firestore {
     	allow read, write: if request.auth.uid == userId;
     }
     
-    match /schedule/{userId} {
-    	allow read, write: if request.auth.uid == userId;
+    match /schedule/{document} {
+      allow read;
+      allow create: if requestMatchesUID();
+      allow update: if resourceMatchesUID() && requestMatchesUID();
+      allow delete: if resourceMatchesUID(); 
+    }
+
+    match /meals/{document} {
+      allow read;
+      allow create: if requestMatchesUID();
+      allow update: if resourceMatchesUID() && requestMatchesUID();
+      allow delete: if resourceMatchesUID(); 
     }
     
-    match /meals/{userId} {
-    	allow read, write: if request.auth.uid == userId;
+    match /workouts/{document} {
+      allow read;
+      allow create: if requestMatchesUID();
+      allow update: if resourceMatchesUID() && requestMatchesUID();
+      allow delete: if resourceMatchesUID(); 
     }
     
-    match /workouts/{userId} {
-    	allow read, write: if request.auth.uid == userId;
+    function requestMatchesUID() {
+        return request.auth.uid == request.resource.data.uid;
+    }
+
+    function resourceMatchesUID() {
+        return request.auth.uid == resource.data.uid;
     }
   }
 }
