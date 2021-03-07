@@ -47,7 +47,7 @@ export class WorkoutsService {
     });
   }
 
-  async updateWorkout(workout: Workout) {
+  updateWorkout(workout: Workout) {
     return this.db.collection('workouts').doc(workout.id).update(workout);
   }
 
