@@ -67,14 +67,14 @@ export class WorkoutComponent implements OnInit, OnDestroy {
   }
 
   async updateWorkout(workout: Workout) {
-    // Alternatively: this.route.snapshot.params.id
-    await this.workoutsService.updateWorkout(workout);
+    const id = this.route.snapshot.params.id;
+    await this.workoutsService.updateWorkout({ id, ...workout });
     this.backToWorkouts();
   }
 
   async removeWorkout(workout: Workout) {
-    // Alternatively: this.route.snapshot.params.id
-    await this.workoutsService.removeWorkout(workout.id);
+    const id = this.route.snapshot.params.id;
+    await this.workoutsService.removeWorkout(id);
     this.backToWorkouts();
   }
 

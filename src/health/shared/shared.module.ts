@@ -10,10 +10,14 @@ import { WorkoutsService } from './services/workouts/workouts.service';
 // Components
 import { ListItemComponent } from './components/list-item/list-item.component';
 
+// Pipes
+import { JoinPipe } from './pipes/join.pipe';
+import { WorkoutPipe } from './pipes/workout.pipe';
+
 @NgModule({
-  declarations: [ListItemComponent],
+  declarations: [ListItemComponent, JoinPipe, WorkoutPipe],
   imports: [CommonModule, RouterModule, AngularFirestoreModule],
-  exports: [ListItemComponent],
+  exports: [ListItemComponent, JoinPipe, WorkoutPipe],
   providers: [],
 })
 export class SharedModule {
